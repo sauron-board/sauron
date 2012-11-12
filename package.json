@@ -1,0 +1,51 @@
+{
+  "name": "sauron",
+  "version": "0.0.1",
+  "description": "The all-seeing continuous delivery dashboard",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "cd ./src && bower install && cd ..",
+    "start": "./bin/sauron"
+  },
+  "bin": {
+    "sauron": "./bin/sauron"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nko3/army-of-one.git"
+  },
+  "dependencies": {
+    "async": "*",
+    "bower": "*",
+    "coffee-script": "~1.4.0",
+    "connect-assets": "*",
+    "connect": "*",
+    "cscj": "~0.0.1",
+    "ejs": "*",
+    "errs": "~0.2.3",
+    "express": "3.x.x",
+    "experiment": "https://github.com/fs-webdev/experiment/archive/master.tar.gz",
+    "jugglingdb": "*",
+    "locomotive": "https://github.com/djensen47/locomotive/archive/master.tar.gz",
+    "optparse": "*",
+    "passport": "~0.1.12",
+    "passport-github": "~0.1.3",
+    "socket.io": "*",
+    "stylus": "*",
+    "underscore": "~1.4.2"
+  },
+  "devDependencies": {
+    "mocha": "~1.3.2",
+    "should": "~1.1.0",
+    "supertest": "~0.4.0",
+    "coffeelint": "~0.5.2",
+    "grunt": "~0.3.17",
+    "grunt-mocha-test": "~0.0.1",
+    "grunt-coffeelint": "~0.0.3",
+    "grunt-shell": "~0.1.3"
+  },
+  "engines": {
+    "node": "0.8.x"
+  },
+  "subdomain": "army-of-one-nko3"
+}

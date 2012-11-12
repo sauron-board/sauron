@@ -1,0 +1,5 @@
+@collection ->
+  @href urlFor()
+
+  for name, plugin of plugins
+    @link rel: name, href: urlFor(controller: "plugins", action: "index", plugin_id: name), prompt: plugin.displayName, render: plugin.render

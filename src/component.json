@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "jquery": "latest",
+    "bootstrap.css": "latest",
+    "collection-json": "https://github.com/downloads/collection-json/collection-json.js/collection-json.angular.js",
+    "smart-time-ago": "git://github.com/pragmaticly/smart-time-ago.git",
+    "underscore": "latest",
+    "jquery.cookie": "latest",
+    "angular": "latest",
+    "angular-ui": "latest",
+    "d3": "latest",
+    "cubism.v1": "https://raw.github.com/square/cubism/master/cubism.v1.js"
+  }
+}

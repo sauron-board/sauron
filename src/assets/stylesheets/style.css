@@ -1,0 +1,191 @@
+body {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 17px;
+}
+input,
+textarea {
+  margin:0;
+  vertical-align:bottom;
+}
+
+.lothlorien {
+  background: #fff;
+  color: #333;
+}
+.mordor {
+  background: #222;
+  color: #eee;
+}
+.serif {
+  font-family: "Times New Roman", serif;
+  font-weight: normal;
+}
+#main {
+  margin: 0 auto;
+  max-width: 1600px;
+}
+header {
+  padding: 14px 10px;
+  margin-bottom: 20px;
+  -moz-border-radius-bottomright: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.lothlorien header {
+  background: #eee;
+}
+.mordor header {
+  background: #333;
+}
+header input[type="text"] {
+  margin: 10px 0 0 10px;
+}
+h1 {
+  font-size: 30px;
+}
+h1, h2 {
+  margin: 0;
+}
+h1 em {
+  color: #999;
+}
+.theme-toggle {
+  margin: 10px 0 0 0;
+}
+.panel-header {
+  padding: 4px 10px;
+  border-radius: 8px 8px 0 0;
+}
+.lothlorien .panel-header {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+  background: #dddddd;
+  background: -moz-linear-gradient(top,  #dddddd 0%, #c4c4c4 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dddddd), color-stop(100%,#c4c4c4));
+  background: -webkit-linear-gradient(top,  #dddddd 0%,#c4c4c4 100%);
+  background: -o-linear-gradient(top,  #dddddd 0%,#c4c4c4 100%);
+  background: -ms-linear-gradient(top,  #dddddd 0%,#c4c4c4 100%);
+  background: linear-gradient(to bottom,  #dddddd 0%,#c4c4c4 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#c4c4c4',GradientType=0 );
+}
+.mordor .panel-header {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 1.0);
+  background: #333;
+}
+.lothlorien .table-hover tbody tr:hover td,
+.lothlorien .table-hover tbody tr:hover th {
+  background-color: #eee;
+}
+.mordor .table-hover tbody tr:hover td,
+.mordor .table-hover tbody tr:hover th {
+  background-color: #4f4f4f;
+}
+
+[data-toggle="collapse"] {
+  cursor: pointer;
+}
+
+.plugin {
+  display: inline-block;
+  width: 100%;
+}
+.plugin.timeline {
+  position: relative;
+  overflow: hidden;
+  height: 150px;
+}
+.plugin.timeline .chart {
+  position: absolute;
+  right: 0px;
+}
+.table th, .table td {
+  padding: 8px 10px;
+}
+
+.dropdown {
+  font-size: 20px;
+}
+.avatar {
+  width: 30px;
+  height: 30px;
+  margin-right: 6px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+
+
+/* ERROR styles */
+.error {
+  background: url("eye.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.error body {
+  background: transparent;
+  position: relative;
+}
+.error h1, .error h2 {
+  text-align: center;
+  font-size: 100px;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+  margin: 20px 0 0;
+}
+.error h2 {
+  font-size: 80px;
+}
+
+
+/* Large desktop */
+@media (min-width: 1025px) {
+  #plugins {
+    -webkit-column-count: 2;
+    -webkit-column-gap: 40px;
+  }
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (max-width: 1024px) {
+  #plugins {
+    -webkit-column-count: 2;
+    -webkit-column-gap: 30px;
+  }
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  header {
+    padding: 6px 10px;
+  }
+  #plugins {
+    -webkit-column-count: 1;
+  }
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  #plugins {
+    -webkit-column-count: 1;
+  }
+  .table th, .table td {
+    padding: 4px 6px;
+  }
+  .panel-header {
+    padding: 4px 6px;
+  }
+  header {
+    padding: 10px 6px;
+  }
+
+
+}

@@ -1,0 +1,13 @@
+{
+  "name":        "hosted-sauron",
+  "version":     "1.0.0",
+  "keywords":    "continuous delivery dashboard",
+  "description": "The all-seeing continuous delivery dashboard",
+  "license":     "MIT",
+  "dependencies": {
+    "sauron": "~0.0.1"
+  },
+  "engines": {
+    "node": "0.8.x"
+  }
+}

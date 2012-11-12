@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Sauron</title>
+  <meta name="description" content="The all-seeing continuous delivery dashboard">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='//fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic' rel='stylesheet' type='text/css'>
+  <%- css("vendor") %>
+  <%- css("style") %>
+</head>
+<body data-ng-app="sauron" data-ng-controller="IndexController" data-ng-class="theme">
+  <div id="main">
+    <header class="clearfix">
+      <div class="pull-left">
+        <h1 class="pull-left">Sauron<!--  <em class="serif">says:</em> --></h1>
+        <!-- <input class="pull-left" type="text" placeholder="Speak friend and enter."> -->
+      </div>
+
+      <div class="dropdown pull-right">
+        <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><img class="avatar" src="<%= user._json.avatar_url %>"><%= user.displayName || user.username %></a>
+        <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+          <li><a data-ng-click="$root.theme='mordor'" data-ng-class="{active: $root.theme=='mordor'}">Mordor</a></li>
+          <li><a data-ng-click="$root.theme='lothlorien'" data-ng-class="{active: $root.theme=='lothlorien'}">Lothlórien</a></li>
+          <li class="divider"></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+      </div>
+
+    </header>
+
+
+    <div id="plugins">
+      <!-- Timeline -->
+      <div class="plugin timeline" id="{{plugin.rel}}" data-ng-repeat="plugin in pluginList | timelinePlugins">
+        <div class="panel-header">
+          <h2 data-ng-bind="plugin.prompt || plugin.rel"></h2>
+          <span data-ng-bind="plugins[plugin.rel].items[0].data[0].value || 0"></span>
+        </div>
+        <div data-timeline="" class="chart" ng-model="plugins[plugin.rel].items[0].data[0].value"></div>
+      </div>
+
+      <!-- Table -->
+      <div class="plugin" id="{{plugin.rel}}" data-ng-repeat="plugin in pluginList | tablePlugins">
+        <div class="panel-header">
+          <h2 data-ng-bind="plugin.prompt || plugin.rel"></h2>
+        </div>
+        <div class="panel">
+          <table class="table table-hover">
+            <thead data-ui-if="plugins[plugin.rel].items.length">
+              <tr>
+                <th data-ng-repeat="datum in pluginTemplates[plugin.rel].data" data-ng-bind="datum.prompt || datum.name"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-ng-repeat="item in plugins[plugin.rel].items">
+                <td data-ng-repeat="datum in item.data">
+                  <span data-ui-if="!item.link(datum.link).href && datum.render != 'date'" data-ng-bind="datum.value"></span>
+                  <a data-ui-if="item.link(datum.link).href" data-ng-href="{{item.link(datum.link).href | massageEmail}}" data-ng-bind="datum.value"></a>
+                  <span data-ui-if="(datum.value | isValidDate) && datum.render == 'date'" data-timeago="" data-ng-model="datum.value">
+                    <time class="timeago" datetime="{{datum.value | toDate}}"></time>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p data-ui-if="!plugins[plugin.rel].items.length">No data is available at the moment</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <% console.log(user) %>
+  
+  <%- js("vendor") %>
+  <%- js("app") %>
+  <script src="/socket.io/socket.io.js"></script>
+</body>
+</html>

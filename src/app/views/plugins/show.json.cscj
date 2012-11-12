@@ -1,0 +1,18 @@
+@collection ->
+  
+  @href urlFor plugin_id: encodeURIComponent(plugin_id), id: encodeURIComponent(id)
+
+  @link link for link in globalLinks
+
+  for command in commands
+    @link rel: "command-#{command.name}", href: urlFor(controller: "commands", action: "show", plugin_id: encodeURIComponent(plugin_id), id: encodeURIComponent(command.name)), prompt: command.prompt
+
+  for item in feed
+    @item ->
+      @href urlFor plugin_id: encodeURIComponent(plugin_id), id: encodeURIComponent(item.id)
+
+      for property in properties
+        @datum name: property.name, value: item[property.name], prompt: property.prompt
+
+      for link in links
+        @link rel: link.rel, href: item[link.name], prompt: link.prompt

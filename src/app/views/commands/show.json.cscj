@@ -1,0 +1,9 @@
+@collection ->
+  
+  @href urlFor plugin_id: encodeURIComponent(plugin_id), id: encodeURIComponent(id)
+
+  @link link for link in globalLinks
+
+  @template ->
+    for parameter in parameters
+      @datum parameter
